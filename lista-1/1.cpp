@@ -25,7 +25,17 @@ bool isCheia() {
     return qtde == TAM;
 }
 
-bool insere(int pos) {
+ListaCompras lerItem() {
+    ListaCompras item;
+    scanf(" %s %s %f %d", 
+        item.nome,
+        item.genero,
+        &item.precoUnitario,
+        &item.qtde);
+    return item;
+}
+
+bool insere(int pos, ListaCompras item) {
     if(isCheia()) return false;
     if(pos < qtde) {
         for(int i = TAM - 1; i > pos; i--) {
@@ -33,13 +43,9 @@ bool insere(int pos) {
         }
     }
     else if(pos > qtde) pos = qtde;
-    scanf(" %s %s %f %d", 
-        lista[pos].nome,
-        lista[pos].genero,
-        &lista[pos].precoUnitario,
-        &lista[pos].qtde);
+    lista[pos] = item;
     qtde++;
-    return true
+    return true;
 }
 
 bool retira(int pos) {
@@ -54,7 +60,7 @@ bool retira(int pos) {
 }
 
 void imprimeItem(ListaCompras item) {
-    printf("\n-----------------");
+    printf("\n-----------------\n");
     printf("Nome: %s \n", item.nome);
     printf("Tipo: %s \n", item.genero);
     printf("Preco unitario: %.2f \n", item.precoUnitario);
@@ -70,11 +76,16 @@ void imprimeLista() {
 
 int main() {
     criaLista();
-    insere(0);
-    insere(1);
-    insere(2);
-    insere(3);
-    insere(4);
+    ListaCompras l1;
+    strcpy(l1.nome, "abc");
+    strcpy(l1.genero, "def");
+    l1.precoUnitario = 1.2;
+    l1.qtde = 1;
+    insere(0, l1);
+    insere(1, lerItem());
+    insere(2, lerItem());
+    insere(3, lerItem());
+    insere(4, lerItem());
     imprimeLista();
     return 0;
 }
