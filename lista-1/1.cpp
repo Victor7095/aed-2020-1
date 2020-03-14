@@ -67,3 +67,14 @@ void imprimeLista() {
         imprimeItem(lista[i]);
     }
 }
+
+int main() {
+    criaLista();
+    insere(0);
+    insere(1);
+    insere(2);
+    insere(3);
+    insere(4);
+    imprimeLista();
+    return 0;
+}
