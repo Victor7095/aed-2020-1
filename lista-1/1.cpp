@@ -56,6 +56,7 @@ bool retira(int pos) {
         }
     }
     lista[TAM - 1].qtde = -1;
+    qtde--;
     return true;
 }
 
@@ -72,6 +73,14 @@ void imprimeLista() {
     for(int i = 0; i < qtde; i++){
         imprimeItem(lista[i]);
     }
+}
+
+float calcTotal() {
+    float acm = 0;
+    for(int i = 0; i < qtde; i++) {
+        acm+=lista[i].precoUnitario;
+    }
+    return acm;
 }
 
 int main() {
