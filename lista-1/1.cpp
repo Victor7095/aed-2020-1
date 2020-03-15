@@ -83,6 +83,13 @@ float calcTotal() {
     return acm;
 }
 
+void abaixoDe(float preco) {
+    for(int i = 0; i < qtde; i++) {
+        if(lista[i].precoUnitario < preco)
+            imprimeItem(lista[i]);
+    }
+}
+
 int main() {
     criaLista();
     ListaCompras l1;
